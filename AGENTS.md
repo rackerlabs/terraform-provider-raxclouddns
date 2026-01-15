@@ -11,8 +11,23 @@ go build -o terraform-provider-raxclouddns
 # Run tests
 go test ./...
 
-# Build for release (creates artifacts for distribution)
-scripts/build-release.sh
+# Vet and format check
+go vet ./...
+gofmt -l .
+```
+
+## CI/CD
+
+**CI** (`.github/workflows/ci.yml`): Runs on push to main and PRs. Executes build, test, vet, and format checks.
+
+**Releases** (`.github/workflows/release.yml`): Triggered by tags matching `v*`. Uses GoReleaser to build releases with checksums.
+
+```bash
+# Validate GoReleaser config
+goreleaser check
+
+# Test release locally (no publish)
+goreleaser release --snapshot --clean
 ```
 
 ## Architecture

@@ -29,13 +29,14 @@ fmt:
 	gofmt -w $(GOFMT_FILES)
 
 fmtcheck:
-	@sh -c "'$(CURDIR)/scripts/gofmtcheck.sh'"
+	@if [ -n "$$(gofmt -l .)" ]; then \
+		echo "The following files are not formatted correctly:"; \
+		gofmt -l .; \
+		exit 1; \
+	fi
 
-errcheck:
-	@sh -c "'$(CURDIR)/scripts/errcheck.sh'"
-
-vendor-status:
-	@govendor status
+release-snapshot:
+	goreleaser release --snapshot --clean
 
 test-compile:
 	@if [ "$(TEST)" = "./..." ]; then \
@@ -59,5 +60,5 @@ ifeq (,$(wildcard $(GOPATH)/src/$(WEBSITE_REPO)))
 endif
 	@$(MAKE) -C $(GOPATH)/src/$(WEBSITE_REPO) website-provider-test PROVIDER_PATH=$(shell pwd) PROVIDER_NAME=$(PKG_NAME)
 
-.PHONY: build test testacc vet fmt fmtcheck errcheck vendor-status test-compile website website-test
+.PHONY: build test testacc vet fmt fmtcheck release-snapshot test-compile website website-test
 
