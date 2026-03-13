@@ -1,13 +1,14 @@
 module github.com/rackerlabs/terraform-provider-raxclouddns
 
-go 1.22
+go 1.24.0
 
 toolchain go1.24.3
 
 require (
-	github.com/gophercloud/gophercloud/v2 v2.0.0
+	github.com/gophercloud/gophercloud/v2 v2.10.0
 	github.com/hashicorp/terraform-plugin-sdk v1.7.0
 	github.com/rackerlabs/goclouddns v0.0.1
+	github.com/rackerlabs/goraxauth v0.0.0-20260107155317-f536fcae8f4e
 )
 
 require (
@@ -59,15 +60,15 @@ require (
 	github.com/zclconf/go-cty v1.2.1 // indirect
 	github.com/zclconf/go-cty-yaml v1.0.1 // indirect
 	go.opencensus.io v0.22.3 // indirect
-	golang.org/x/crypto v0.24.0 // indirect
+	golang.org/x/crypto v0.33.0 // indirect
 	golang.org/x/exp v0.0.0-20200213203834-85f925bdd4d0 // indirect
 	golang.org/x/lint v0.0.0-20200130185559-910be7a94367 // indirect
 	golang.org/x/mod v0.17.0 // indirect
 	golang.org/x/net v0.25.0 // indirect
 	golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d // indirect
-	golang.org/x/sync v0.7.0 // indirect
-	golang.org/x/sys v0.21.0 // indirect
-	golang.org/x/text v0.16.0 // indirect
+	golang.org/x/sync v0.11.0 // indirect
+	golang.org/x/sys v0.30.0 // indirect
+	golang.org/x/text v0.22.0 // indirect
 	golang.org/x/tools v0.21.1-0.20240508182429-e35e4ccd0d2d // indirect
 	google.golang.org/api v0.17.0 // indirect
 	google.golang.org/appengine v1.6.5 // indirect
