@@ -27,12 +27,19 @@ func Provider() *schema.Provider {
 			},
 			"password": &schema.Schema{
 				Type:      schema.TypeString,
-				Required:  true,
+				Optional:  true,
 				Sensitive: true,
 				DefaultFunc: schema.MultiEnvDefaultFunc([]string{
 					"OS_PASSWORD",
 				}, ""),
 				Description: "Password to login with.",
+			},
+			"api_key": &schema.Schema{
+				Type:        schema.TypeString,
+				Optional:    true,
+				Sensitive:   true,
+				DefaultFunc: schema.EnvDefaultFunc("RAX_API_KEY", ""),
+				Description: "Rackspace API key to login with.",
 			},
 		},
 		ResourcesMap: map[string]*schema.Resource{
@@ -62,6 +69,7 @@ func configureProvider(d *schema.ResourceData, terraformVersion string) (interfa
 		IdentityEndpoint: d.Get("auth_url").(string),
 		Password:         d.Get("password").(string),
 		Username:         d.Get("user_name").(string),
+		ApiKey:           d.Get("api_key").(string),
 		TerraformVersion: terraformVersion,
 		SDKVersion:       meta.SDKVersionString(),
 	}
