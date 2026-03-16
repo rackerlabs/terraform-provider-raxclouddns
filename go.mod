@@ -7,7 +7,7 @@ toolchain go1.24.3
 require (
 	github.com/gophercloud/gophercloud/v2 v2.10.0
 	github.com/hashicorp/terraform-plugin-sdk v1.7.0
-	github.com/rackerlabs/goclouddns v0.0.1
+	github.com/rackerlabs/goclouddns v0.0.3
 	github.com/rackerlabs/goraxauth v0.0.0-20260107155317-f536fcae8f4e
 )
 
