@@ -7,39 +7,69 @@
     ":automergeDigest",
     ":automergePatch"
   ],
-  "schedule": ["before 6am on monday"],
+  "schedule": [
+    "before 6am on monday"
+  ],
   "timezone": "America/Chicago",
-  "labels": ["dependencies"],
-  "assignees": ["cardoe"],
-  "reviewers": ["cardoe"],
+  "labels": [
+    "dependencies"
+  ],
+  "assignees": [
+    "cardoe"
+  ],
+  "reviewers": [
+    "cardoe"
+  ],
   "postUpdateOptions": [
     "gomodTidy"
   ],
   "packageRules": [
     {
-      "matchManagers": ["gomod"],
-      "matchDepTypes": ["indirect"],
+      "matchManagers": [
+        "gomod"
+      ],
+      "matchDepTypes": [
+        "indirect"
+      ],
       "enabled": false
     },
     {
-      "matchManagers": ["gomod"],
-      "matchPackageNames": ["github.com/cert-manager/cert-manager"],
+      "matchManagers": [
+        "gomod"
+      ],
+      "matchPackageNames": [
+        "github.com/cert-manager/cert-manager"
+      ],
       "groupName": "cert-manager",
-      "schedule": ["before 6am on the first day of the month"]
+      "schedule": [
+        "before 6am on the first day of the month"
+      ]
     },
     {
-      "matchManagers": ["gomod"],
-      "matchPackagePatterns": ["^k8s\\.io/"],
+      "matchManagers": [
+        "gomod"
+      ],
       "groupName": "kubernetes",
-      "schedule": ["before 6am on the first day of the month"]
+      "schedule": [
+        "before 6am on the first day of the month"
+      ],
+      "matchPackageNames": [
+        "/^k8s\\.io//"
+      ]
     },
     {
-      "matchManagers": ["helm-values"],
-      "matchFileNames": ["charts/**/Chart.yaml"],
+      "matchManagers": [
+        "helm-values"
+      ],
+      "matchFileNames": [
+        "charts/**/Chart.yaml"
+      ],
       "groupName": "helm-chart"
     },
     {
-      "matchManagers": ["github-actions"],
+      "matchManagers": [
+        "github-actions"
+      ],
       "groupName": "github-actions",
       "automerge": true
     }
