@@ -2,7 +2,7 @@ module github.com/rackerlabs/terraform-provider-raxclouddns
 
 go 1.24.0
 
-toolchain go1.24.13
+toolchain go1.26.1
 
 require (
 	github.com/gophercloud/gophercloud/v2 v2.10.0
